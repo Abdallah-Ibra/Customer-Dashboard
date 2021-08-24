@@ -1,0 +1,65 @@
+{% load static   %}
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+
+<link rel='stylesheet' type="text/css" href="{% static '/css/style.css'  %}">
+
+<div class="jumbotron">
+
+   <h1 class="display-4">Login page</h1>
+      <hr class="my-4">
+
+   </div>
+
+
+<div class="container">
+
+
+   <form method="POST" action=""><br>
+
+      {% csrf_token %}
+
+         <div class="form-group">
+            {% comment %} <label for="exampleInputEmail1">  username</label> {% endcomment %}
+            <input type="text" name="username" placeholder="Username" class="form-control" style="width:40rem;">
+            </div>
+
+         <div class="form-group">
+            {% comment %} <label for="exampleInputPassword1">Password</label> {% endcomment %}
+            <input name="password" type="password" placeholder='Password' class="form-control" id="exampleInputPassword1" style="width:40rem;">
+         </div>
+         <div>
+            <button type="submit" class="btn btn-primary" style="width:8rem;">Login</button> 
+            <br><br>
+            <a href="{% url 'reset_password' %}">Forgot Your Password?</a> |              <a href="{% url 'register' %}">Don't Have Account?</a>
+
+         </div>
+
+            <div><br>
+               <script src="https://www.google.com/recaptcha/api.js"></script>
+               <div class="g-recaptcha" data-sitekey="6LfCOuIbAAAAABvOznQlFKvnUiWClIcuED2v8JDV"></div>
+            </div>
+            
+
+      </form>
+      
+   </div>
+
+</div>
+
+<div class='container'> 
+
+   <h4> 
+
+      {% for msg in messages %}
+         
+         <span class="text-danger">{{ msg }}</span>
+         
+      {% endfor %}
+
+
+   </h4>
+
+</div>
+

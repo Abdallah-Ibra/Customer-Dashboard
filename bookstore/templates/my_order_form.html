@@ -1,0 +1,31 @@
+{% extends 'main.html'%}
+{% load static   %}
+
+{% block content %}
+
+
+
+<div class="card"  > 
+   <div class="card-body">
+
+      <form action="" method="POST">
+         {% csrf_token %}
+         {{ formset.management_form }}
+            {% for item in  formset %}
+               {{item}} <br><br>
+               
+            {% comment %} {% for item in  form %}
+
+               {{item}} <br><br> {% endcomment %}
+
+            {% endfor %}
+         <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+
+   </div>
+</div>
+
+
+
+
+{% endblock %}

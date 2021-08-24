@@ -1,0 +1,56 @@
+{% extends 'main.html'%}
+{% load static   %}
+
+{% block content %}
+
+
+
+<div class="card"  > 
+   <div class="card-body">
+      <h1>Register Form</h1><br>
+      
+      <form action="" method="POST">
+         
+         {% csrf_token %}
+         {% comment %} {{ form.as_p }} {% endcomment %}
+         
+
+            <div class="mb-3">
+               <label for="exampleInputUser" class="form-label">Username</label>
+               {{ form.username }}
+            </div>
+
+            <div class="mb-3">
+               <label for="exampleInputEmail1" class="form-label">Email address</label>
+               {{ form.email }}
+            </div>
+            <div class="mb-3">
+               <label for="exampleInputPassword1" class="form-label">Password</label>
+               {{ form.password1 }}
+            </div>
+
+            <div class="mb-3">
+               <label for="exampleInputPassword1" class="form-label">Confirm Password</label>
+               {{ form.password2 }}
+            </div>
+            
+               {{ form.errors }}
+            <br>
+
+            <button type="submit" class="btn btn-primary">Register</button> 
+            <br>
+            Have Account? <a href="{% url 'login' %}">Login Now!</a>
+
+            <div>
+               <script src="https://www.google.com/recaptcha/api.js"></script>
+               <div class="g-recaptcha" data-sitekey="6LfCOuIbAAAAABvOznQlFKvnUiWClIcuED2v8JDV"></div>
+            </div>
+            
+            </form>
+   </div>
+</div>
+
+
+
+
+{% endblock %}

@@ -1,0 +1,66 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+
+
+
+<div class="container pb-5">
+
+<h1 class="pt-3 text-lg-center text-success"> Welcome back, {{ request.user }}! </h1>
+
+<hr>
+
+<div class="row">
+
+   <div class="col-sm">
+   Total Orders: <span class="badge bg-danger ">{{ t_orders }}</span>
+   </div>
+   <div class="col-sm">
+   Pending: <span class="badge bg-warning text-dark">{{ p_orders  }}</span>
+   </div>
+   <div class="col-sm">
+   Delivered: <span class="badge bg-success">{{ d_orders  }}</span>
+   </div>
+
+   <div class="col-sm">
+   In Progress: <span class="badge bg-info text-dark">{{in_orders  }}</span>
+   </div>
+
+   <div class="col-sm">
+   Out Of Progress: <span class="badge bg-primary">{{ out_orders }}</span>
+   </div>
+
+</div>
+<hr>
+
+
+<table class="table mt-3 table-striped table-hover">
+   <thead  class="table-dark ">
+      <tr>
+         <th scope="col">Book</th>
+         <th scope="col">Category</th>
+         <th scope="col">Date</th>
+         <th scope="col">Status</th>
+      </tr>
+   </thead>
+
+
+<tbody>
+
+      {% for item in orders %}
+         <tr>
+            <td>{{ item.book }}</td>
+            <td>{{ item.book.category }}</td>
+            <td>{{ item.date_created }}</td>
+            <td>{{ item.status }}</td>
+         </tr>
+      {% endfor %}
+
+</tbody>
+
+</table>
+
+</div>
+
+{% endblock %}

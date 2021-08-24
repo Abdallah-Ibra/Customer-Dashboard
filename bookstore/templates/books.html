@@ -1,0 +1,32 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+<div class="container">
+<table class="table mt-3 table-striped table-hover">
+  <thead  class="table-dark ">
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Price</th>
+      <th scope="col">Author</th>
+      <th scope="col">Description</th>
+    </tr>
+  </thead>
+
+
+  <tbody>
+      {% for item in books %}
+   <tr>
+      <td>{{ item.name }}</td>
+      <td>{{ item.price }}$</td>
+      <td>{{ item.author }}</td>
+      <td>{{ item.description }}</td>
+   </tr>
+      {% endfor %}
+  </tbody>
+
+</table>
+
+</div>
+
+{% endblock %}
